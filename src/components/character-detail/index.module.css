@@ -1,35 +1,43 @@
 .wrapper {
-    display: flex;
-    align-items: center;
-    flex-flow: column nowrap;
-    gap: 15px;
-    padding: 25px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  gap: 15px;
+  padding: 25px;
+  width: 100%;
 }
 
 .characterImage {
-    border-radius: 6px;;
-    object-fit: contain;
-    width: 250px;
-    height: 250px;
+  border-radius: 6px;
+  object-fit: contain;
+  width: 250px;
+  height: 250px;
 }
 
 .infoRow {
-    display: flex;
-    font-size: 16px;
-    gap: 10px;
+  display: flex;
+  font-size: 16px;
+  gap: 10px;
 }
 
 .infoKey {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .infoValue {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .error {
-    color: var(--text-primary);
-    font-size: 18px;
-    font-weight: 500;
-  }
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.link {
+  color: var(--color-primary-1);
+}
+
+.link:active {
+  color: var(--color-primary-2);
+}

@@ -9,6 +9,6 @@ export default {
   moduleNameMapper: {
     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/src/test/__ mocks __/fileMock.js',
     '^.+\\.(less|scss)$': '<rootDir>/src/test/__ mocks __/styleMock.js',
-    "\\.css$": "identity-obj-proxy",
+    '\\.css$': 'identity-obj-proxy',
   },
 };

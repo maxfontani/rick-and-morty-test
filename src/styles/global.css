@@ -10,7 +10,8 @@
   --color-dark: #1e1f1c;
   --card-width: 175px;
 
-  font-family: 'RickAndMorty', 'Arvo', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'RickAndMorty', monospace, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

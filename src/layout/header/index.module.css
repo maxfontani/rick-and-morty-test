@@ -4,7 +4,11 @@
   justify-content: center;
   align-items: center;
   flex: 0 0 75px;
-  background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%); 
+  background: linear-gradient(
+    180.2deg,
+    rgb(30, 33, 48) 6.8%,
+    rgb(74, 98, 110) 131%
+  );
 }
 
 .title {
@@ -18,4 +22,5 @@
   color: var(--text-primary);
   font-size: 18px;
   font-weight: 400;
+  font-family: monospace;
 }

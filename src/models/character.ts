@@ -18,4 +18,3 @@ export type Character = {
   url: string;
   created: string;
 };
-

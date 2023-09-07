@@ -10,3 +10,9 @@ export function debounce(fn: F, ms: number) {
     timeout = setTimeout(fnCall, ms);
   };
 }
+
+export const capitalizeFirstLetter = (str: string) => {
+  if (typeof str !== 'string' || !str) return '';
+
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};

@@ -21,6 +21,9 @@ jobs:
           node-version: 16
           cache: 'yarn'
 
+      - name: Run prettier
+        run: yarn prettier . --write
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 

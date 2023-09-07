@@ -10,5 +10,4 @@ export type GetAllCharactersResponse = {
   results: Character[];
 };
 
-export type ApiState = 
-'idle' | 'success' | 'fetching' | 'error';
+export type ApiState = 'idle' | 'success' | 'fetching' | 'error';

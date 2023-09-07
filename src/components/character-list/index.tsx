@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useDebounced } from '../../hooks/use-debouned';
-import { fetchAllCharacters } from '../../assets/utils/api';
+import { useDebounced } from '../../hooks/use-debounced';
 import { CharacterCard, NavBar, Spinner } from '../';
+import { getFetchCharactersHandler, sortCharactersByName } from './utils';
+import { SEARCH_DEBOUNCE_MS } from './constants';
 import { ApiState, GetAllCharactersResponse } from '../../models/api';
 import s from './index.module.css';
 
@@ -15,16 +16,10 @@ export const CharacterList: React.FC = () => {
   const [apiState, setApiState] = useState<ApiState>('idle');
 
   // Always sort the characters by name
-  const sortedCharacters = useMemo(() => {
-    if (!Array.isArray(characters?.results)) return [];
-
-    const charactersCopy = [...characters?.results];
-
-    return (
-      charactersCopy?.sort((a, b) => a.name.localeCompare(b.name)) ||
-      []
-    );
-  }, [characters]);
+  const sortedCharacters = useMemo(
+    () => sortCharactersByName(characters?.results),
+    [characters]
+  );
 
   const getChangePageHandler = useCallback(
     (direction: 'prev' | 'next') => () =>
@@ -34,34 +29,22 @@ export const CharacterList: React.FC = () => {
     []
   );
 
+  const fetchCharacters = useCallback(
+    getFetchCharactersHandler(setApiState, setCharacters, setApiError),
+    []
+  );
+
   const onChangeSearch = useDebounced(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearch(event.target.value);
-    }
+    },
+    SEARCH_DEBOUNCE_MS
   );
 
-  const fetchCharacters = useCallback(async (page: number, name?: string) => {
-    try {
-      setApiState('fetching');
-
-      const characters = await fetchAllCharacters(page, name);
-
-      setCharacters(characters);
-      setApiState('success');
-    } catch (error) {
-      console.error(error);
-
-      const errorMessage =
-        error instanceof Error ? error : 'Oops, something went wrong';
-
-      setApiState('error');
-      setApiError(errorMessage.toString());
-    }
-  }, []);
-
   useEffect(() => {
-    fetchCharacters(page);
-  }, [fetchCharacters]);
+    // fetch initial character list data
+    fetchCharacters(page, search);
+  }, []);
 
   // Compare props to avoid useUffect's extra re-renders
   if (prevSearch !== search || prevPage !== page) {

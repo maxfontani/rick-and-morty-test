@@ -10,16 +10,16 @@ export const fetchAllCharacters = async (page: number, name = '') => {
     | GetAllCharactersResponse
     | { error: string };
 
-  if ("error" in data && typeof data.error === 'string') throw new Error(data.error);
-  if (!("results" in data) || !Array.isArray(data.results)) throw new Error('Invalid API response');
+  if ('error' in data && typeof data.error === 'string')
+    throw new Error(data.error);
+  if (!('results' in data) || !Array.isArray(data.results))
+    throw new Error('Invalid API response');
 
   return data;
 };
 
 export const fetchCharacterById = async (id: number) => {
-  const response = await fetch(
-    `${API_BASE_URL}/${URLS.GET_CHARACTER}/${id}`
-  );
+  const response = await fetch(`${API_BASE_URL}/${URLS.GET_CHARACTER}/${id}`);
   const data = (await response.json()) as Character;
 
   if (!data) throw new Error('Invalid API response');

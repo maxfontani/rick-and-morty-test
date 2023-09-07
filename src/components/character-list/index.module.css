@@ -34,7 +34,6 @@
   font-weight: 500;
 }
 
-
 @media all and (max-width: 460px) {
   .list {
     display: flex;

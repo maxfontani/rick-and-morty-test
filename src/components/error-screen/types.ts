@@ -1,4 +1,4 @@
 export type Props = {
-	message?: string;
-	route?: string;
+  message?: string;
+  route?: string;
 };

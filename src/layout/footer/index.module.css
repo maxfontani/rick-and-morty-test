@@ -5,6 +5,7 @@
   height: 25px;
   color: whitesmoke;
   background-color: var(--color-dark);
+  font-family: system-ui;
 }
 
 .footerContent {
