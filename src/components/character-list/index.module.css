@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 15px;
+  padding: 15px 0;
+  width: 100%;
+}
+
+.list {
+  --grid-layout-gap: 16px;
+  --grid-column-count: 6;
+  --grid-item--min-width: var(--card-width);
+
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc(
+    (100% - var(--total-gap-width)) / var(--grid-column-count)
+  );
+
+  display: grid;
+  align-self: center;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+  );
+  grid-gap: var(--grid-layout-gap);
+  width: 90%;
+  max-width: 1200px;
+}
+
+.error {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+@media all and (max-width: 460px) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+}

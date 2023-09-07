@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 75px;
+  background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%); 
+}
+
+.title {
+  font-family: 'RickAndMorty';
+  color: var(--color-primary-2);
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.subTitle {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 400;
+}

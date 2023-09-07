@@ -1,0 +1,31 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Default settings for all files
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# TypeScript/JavaScript specific settings
+[*.{ts,tsx,js,jsx}]
+quote_type = single
+max_line_length = 100
+
+# JSON specific settings
+[*.json]
+indent_size = 2
+
+# CSS/SCSS specific settings
+[*.css, *.scss]
+indent_size = 2
+
+# Markdown specific settings
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
